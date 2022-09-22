@@ -1,5 +1,5 @@
 body {
-    font-family: 'Baloo 2', cursive;
+    font-family: 'Baloo 2', arial;
 }
 
 #display {
@@ -26,12 +26,16 @@ footer {
     background-color: rgb(102 97 98);
     padding: 10px;
     text-align: center;
-    font-weight: 700;
-    position: absolute;
-    bottom: 0;
-    height: 2.5rem;
+    font-weight: 600;
+    color: white;
 }
 
 .spinner-border {
     display: none;
+}
+
+#error {
+    min-height: 15vh;
+    color: red;
+    font-size: 15px;
 }
