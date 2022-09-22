@@ -29,7 +29,7 @@
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="#" onclick='alert("Under Development!")'>About</a>
                     </li>
                 </ul>
                 <div class="form-check form-switch">
@@ -43,8 +43,8 @@
 
     <div class="container my-3">
         <div class="jumbotron">
-            <h1>Current time in your time zone is: <span id="time"></span></h1>
-            <p class="lead">Above you can see date and time according to your time zone.Browse for more time zones
+            <h2>Current time in your time zone is: <span id="time"></span></h2>
+            <p class="lead">Above you can see date and time according to your time zone. Browse for more time zones
                 from button below:-) </p>
             <hr class="my-4">
             <p>This website is capable of showing current time in different countries!!</p>
@@ -56,7 +56,7 @@
     <div class="container">
         <form>
             <div class="mb-3">
-                <label for="exampleInput1" class="form-label">Enter exact format of timezone(country/city)</label>
+                <label for="exampleInput1" class="form-label">Enter exact format of timezone (area/location/region)</label>
                 <input type="text" class="form-control" id="exampleInput1">
             </div>
             <button type="submit" class="btn btn-success" id="submit">Submit</button>
@@ -69,6 +69,7 @@
         </div>
     </div>
     <div class="container" id="display"></div>
+    <div class="container" id="error"></div>
     <footer>
         Copyright &copy; 2022. Made with <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
             fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
