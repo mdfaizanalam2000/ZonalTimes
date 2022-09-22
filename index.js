@@ -10,6 +10,8 @@ let search = document.getElementById("submit");
 let clear = document.getElementById("clear");
 search.addEventListener("click", (e) => {
     e.preventDefault();
+    document.getElementById("display").innerText = "";
+    document.querySelector("#error").innerText = "";
     showData();
 })
 
@@ -17,6 +19,7 @@ clear.addEventListener("click", (e) => {
     e.preventDefault();
     document.getElementById("exampleInput1").value = "";
     document.getElementById("display").innerText = "";
+    document.querySelector("#error").innerText = "";
 })
 
 async function showData() {
@@ -29,6 +32,12 @@ async function showData() {
     const url = `https://worldtimeapi.org/api/timezone/${input}`;
     const response = await fetch(url);
     const data = await response.json();
+    
+    if (data.error) {
+        document.querySelector("#error").innerText = data.error + "\nTry again with valid input format. You can copy and paste location from Browse More Timezones button:-)";
+        document.querySelector(".spinner-border").style.display = "none";
+        return;
+    }
     setData(data);
 }
 
