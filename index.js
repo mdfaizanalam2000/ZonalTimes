@@ -29,7 +29,7 @@ async function showData() {
         return;
     }
     document.querySelector(".spinner-border").style.display = "block";
-    const url = `https://worldtimeapi.org/api/timezone/${input}`;
+    const url = `http://worldtimeapi.org/api/timezone/${input}`;
     const response = await fetch(url);
     const data = await response.json();
     
