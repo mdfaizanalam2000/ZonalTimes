@@ -34,7 +34,7 @@ async function showData() {
     const response = await fetch(url);
     const data = await response.json();
 
-    if (data.countryCode === "WF") {
+    if (data.countryCode === "WF" || data.status === "FAILED") {
         document.querySelector("#error").innerText = "Try again with valid input format. You can copy and paste location from Browse More Timezones button:-)";
         document.querySelector(".spinner-border").style.display = "none";
         return;
@@ -46,7 +46,12 @@ function setData(data) {
     let datetime = data.formatted;
     let area = document.querySelector("#display");
     let myArray = datetime.split(" ");
-    let gmtOffset = Number(data.gmtOffset) / 3600;
+    let gmtOffsetHour = Math.trunc(Number(data.gmtOffset) / 3600);
+    let gmtOffsetMin = (Number(data.gmtOffset) / 3600 - Math.trunc(Number(data.gmtOffset) / 3600)) * 60;
+    let gmtOffset = gmtOffsetHour + ":" + gmtOffsetMin;
+    if (data.gmtOffset / 3600 > 0) {
+        gmtOffset = "+" + gmtOffset;
+    }
     document.querySelector(".spinner-border").style.display = "none";
     area.innerText = "Current time in " + data.zoneName + " is: " + myArray[1] + " on " + myArray[0] + "\n" + "UTC Offset= " + gmtOffset+" hours";
 }
